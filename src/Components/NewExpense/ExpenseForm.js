@@ -26,11 +26,12 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
     e.preventDefault();
 
     const expenseData = {
+      // id: 'e0',
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    // console.log(expenseData);
+    console.log(expenseData);
 
     onSaveExpenseData(expenseData);
     setEnteredTitle("");

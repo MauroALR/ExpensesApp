@@ -6,7 +6,7 @@ const NewExpense = ({ onAddExpense }) => {
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
-      id: Math.random().toString(),
+      id: Math.random().toString()
     };
     // console.log('New Expense!')
     // console.log(enteredExpenseData)

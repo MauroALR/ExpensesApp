@@ -19,13 +19,12 @@ const Expenses = ({ items }) => {
         onChangeFilter={filterChangeHandler}
       />
       <Card className="expenses">
-        {items.map((item, key) => (
+        {items.map((item) => (
           <ExpenseItem
-            key={key}
+            key={item.id}
             title={item.title}
             amount={item.amount}
-            date={item.date}
-          />
+            date={item.date} />
         ))}
       </Card>
     </div>
