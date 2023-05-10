@@ -24,20 +24,23 @@ const Expenses = ({ items }) => {
   return (
     <div>
       <Card className="expenses">
-      <ExpensesFilter
-        selected={filteredYear}
-        onChangeFilter={filterChangeHandler}
-      />
-        
+        <ExpensesFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
+
         {/*filteredItems son los items que ya están filtrados y ahora sólo falta que se renderizen , por esa razón el mapeo */}
-        {filteredItems.map((item) => (
-          <ExpenseItem
-            key={item.id}
-            title={item.title}
-            amount={item.amount}
-            date={item.date}
-          />
-        ))}
+        {/* Usar operadores ternarios para desplegar condicionalmente una componente está bien, pero para tener un código más esbelto, se puede usar coerción implícita (booleans &&) */}
+        {filteredItems.length === 0 && <p>No expenses found</p>}
+        {filteredItems.length > 0 &&
+          filteredItems.map((item) => (
+            <ExpenseItem
+              key={item.id}
+              title={item.title}
+              amount={item.amount}
+              date={item.date}
+            />
+          ))}
       </Card>
     </div>
   );
