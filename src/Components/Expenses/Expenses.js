@@ -5,26 +5,38 @@ import "./Expenses.css";
 import ExpensesFilter from "../ExpensesFilter/ExpensesFilter";
 
 const Expenses = ({ items }) => {
-  console.log(items)
-  const [fielteredYear, setFilteredYear] = useState("2019");
+  // console.log(items);
+  const [filteredYear, setFilteredYear] = useState("2020");
 
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
+    // console.log(selectedYear);
   };
+
+  // items = items.filter((objects) => {
+  //   return objects.date.getFullYear().toString() === filteredYear;
+  // }); othe way to do it
+
+  const filteredItems = items.filter((objects) => {
+    return objects.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <div>
+      <Card className="expenses">
       <ExpensesFilter
-        selected={fielteredYear}
+        selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      <Card className="expenses">
-        {items.map((item) => (
+        
+        {/*filteredItems son los items que ya están filtrados y ahora sólo falta que se renderizen , por esa razón el mapeo */}
+        {filteredItems.map((item) => (
           <ExpenseItem
             key={item.id}
             title={item.title}
             amount={item.amount}
-            date={item.date} />
+            date={item.date}
+          />
         ))}
       </Card>
     </div>
