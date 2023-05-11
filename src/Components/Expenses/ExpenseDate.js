@@ -1,9 +1,10 @@
 import "./ExpenseDate.css";
 import React from "react";
 
+
 const ExpenseDate = ({date}) => {
-  const month = date.toLocaleDateString("es-mx", { month: "2-digit" });
-  const day = date.toLocaleDateString("es-mx", { day: "2-digit" });
+  const month = date.toLocaleDateString('es-MX', { month: "2-digit" });
+  const day = date.toLocaleDateString('es-MX',{timeZone: 'UTC',day: "2-digit"  });
   const year = date.getFullYear();
 
   return (

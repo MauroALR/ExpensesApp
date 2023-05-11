@@ -5,3 +5,12 @@
   width: 50rem;
   max-width: 95%;
 }
+
+p{
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
